@@ -13,7 +13,7 @@ const RegisterPage = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5001/api/register", {
+      await axios.post("https://brandpull-1.onrender.com/api/register", {
         username: username,
         email: email,
         password: password,

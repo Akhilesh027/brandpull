@@ -26,11 +26,11 @@ const Profile = () => {
 
       try {
         // Fetch user details
-        const userResponse = await axios.get('http://localhost:5001/api/user/details', config);
+        const userResponse = await axios.get('https://brandpull-1.onrender.com/api/user/details', config);
         setUser(userResponse.data);
 
         // Fetch user orders
-        const ordersResponse = await axios.get('http://localhost:5001/api/orders', config);
+        const ordersResponse = await axios.get('https://brandpull-1.onrender.com/api/orders', config);
         setOrders(ordersResponse.data);
       } catch (error) {
         console.error('Error fetching user data:', error);

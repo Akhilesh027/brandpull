@@ -8,7 +8,7 @@ function LatestOrders() {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/api/orders');
+        const response = await axios.get('https://brandpull-1.onrender.com/api/orders');
         setOrders(response.data);
       } catch (error) {
         console.error('Error fetching orders:', error);
@@ -21,7 +21,7 @@ function LatestOrders() {
   const handleMarkAsCompleted = async (orderId) => {
     try {
       // API call to update order status to 'Completed'
-      await axios.patch(`http://localhost:5001/api/orders/${orderId}`, {
+      await axios.patch(`https://brandpull-1.onrender.com/api/orders/${orderId}`, {
         status: 'Completed',
       });
 

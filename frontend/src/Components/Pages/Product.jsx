@@ -13,7 +13,7 @@ const Product = ({ initialQuantity = 1, productId }) => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`http://localhost:5001/api/products/${productId}`);
+        const response = await axios.get(`https://brandpull-1.onrender.com/api/products/${productId}`);
         setProduct(response.data);
       } catch (err) {
         setError("Failed to fetch product data");
@@ -31,7 +31,7 @@ const Product = ({ initialQuantity = 1, productId }) => {
 
   const handleAddToCart = async () => {
     try {
-      await axios.post('http://localhost:5001/add', {
+      await axios.post('https://brandpull-1.onrender.com/add', {
         productId,
         productName: product.name,
         productPrice: product.price,

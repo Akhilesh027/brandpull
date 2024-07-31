@@ -24,12 +24,12 @@ function Dashboard() {
     const fetchData = async () => {
       try {
         // Fetch total sales
-        const salesResponse = await axios.get('http://localhost:5001/api/sales/total');
+        const salesResponse = await axios.get('https://brandpull-1.onrender.com/api/sales/total');
         const salesAmount = parseFloat(salesResponse.data.totalSales);
         setTotalSales(salesAmount);
 
         // Fetch total orders
-        const ordersResponse = await axios.get('http://localhost:5001/api/orders');
+        const ordersResponse = await axios.get('https://brandpull-1.onrender.com/api/orders');
         const ordersData = ordersResponse.data;
         setOrders(ordersData);
         setTotalOrders(ordersData.length);
@@ -37,7 +37,7 @@ function Dashboard() {
         setCompletedOrders(ordersData.filter(order => order.status === 'Completed').length);
 
         // Fetch total products
-        const productsResponse = await axios.get('http://localhost:5001/api/products/total');
+        const productsResponse = await axios.get('https://brandpull-1.onrender.com/api/products/total');
         // Assuming totalProducts is needed for other purposes
       } catch (error) {
         console.error('Error fetching data:', error);

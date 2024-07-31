@@ -18,7 +18,7 @@ const Navbar = () => {
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/cart');
+        const response = await axios.get('https://brandpull-1.onrender.com/cart');
         setCartItems(response.data);
       } catch (err) {
         setError("Failed to fetch cart items");
@@ -49,7 +49,7 @@ const Navbar = () => {
 
       try {
         const response = await axios.get(
-          "http://localhost:5001/api/user/details",
+          "https://brandpull-1.onrender.com/api/user/details",
           config
         );
         setCurrentUser(response.data);

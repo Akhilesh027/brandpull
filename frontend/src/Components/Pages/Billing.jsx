@@ -19,7 +19,7 @@ const BillingForm = () => {
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
-        const response = await axios.get("http://localhost:5001/cart");
+        const response = await axios.get("https://brandpull-1.onrender.com/cart");
         setCartItems(response.data);
       } catch (err) {
         setError("Failed to fetch cart items");
@@ -53,7 +53,7 @@ const BillingForm = () => {
     e.preventDefault();
     try {
       // Save billing details
-      await axios.post("http://localhost:5001/api/saveBillingDetails", formData);
+      await axios.post("https://brandpull-1.onrender.com/api/saveBillingDetails", formData);
 
       // Prepare order details
       const orderDetails = {
@@ -66,7 +66,7 @@ const BillingForm = () => {
       };
 
       // Save order details
-      await axios.post("http://localhost:5001/api/orders", orderDetails, {
+      await axios.post("https://brandpull-1.onrender.com/api/orders", orderDetails, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

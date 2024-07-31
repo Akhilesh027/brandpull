@@ -12,7 +12,7 @@ const Cart = ({ onClose }) => {
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/cart');
+        const response = await axios.get('https://brandpull-1.onrender.com/cart');
         setCartItems(response.data);
       } catch (err) {
         setError("Failed to fetch cart items");
@@ -26,7 +26,7 @@ const Cart = ({ onClose }) => {
 
   const handleDelete = async (productIdnum) => {
     try {
-      await axios.delete(`http://localhost:5001/api/cart/${productIdnum}`);
+      await axios.delete(`https://brandpull-1.onrender.com/api/cart/${productIdnum}`);
       setCartItems(cartItems.filter(item => item.productIdnum !== productIdnum));
       alert('Item deleted successfully');
       window.location.href = '/product'
