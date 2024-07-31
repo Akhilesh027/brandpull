@@ -1,0 +1,224 @@
+#Home {
+    width: 100vw;
+    height: 90vh;
+    background-color: azure;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+  }
+  .matter {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .page h3 {
+    font-size: 20px;
+    font-family: 'Merriweather', serif;
+    margin-bottom: 20px;
+  }
+  .page h1 {
+    font-size: 40px;
+    font-family: 'Merriweather', serif;
+  }
+  .page p {
+    font-size: 17px;
+    font-family: 'Merriweather', serif;
+    margin-top: 20px;
+  }
+  .btn {
+    padding-top: 17px;
+    padding-right: 34px;
+    padding-bottom: 17px;
+    padding-left: 34px;
+    border-radius: 5px;
+    background-color: #ea559d;
+    color: #ffff;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+  }
+  .Link {
+    color: aliceblue;
+    text-decoration: none;
+    text-transform: capitalize;
+  }
+  .benefits-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #131a2a;
+    padding: 20px;
+    flex-wrap: wrap;
+  }
+  .benefit-card {
+    background-color: #3b4a61;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    flex: 1;
+    max-width: 250px;
+  }
+  .benefit-card .icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  .benefit-card .text h3 {
+    margin: 10px 0;
+    font-size: 20px;
+  }
+  .benefit-card .text p {
+    margin: 0;
+    font-size: 16px;
+  }
+  .reviews-section {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    padding: 40px;
+    background-color: #f9f9f9;
+    position: relative;
+  }
+  .reviews-container {
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+  }
+  .review-card {
+    height: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    flex: 1;
+    margin-top: 120px;
+  }
+  .deal-card {
+    height: 500px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    flex: 1;
+  }
+  .rating {
+    font-size: 24px;
+    color: gold;
+  }
+  .text {
+    position: relative;
+    top: 20%;
+  }
+  .reviewer {
+    width: 400px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 160px;
+  }
+  .reviewer img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  .deal-card {
+    background-image: url('../Images/image6.jpeg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding-top: 140px;
+    opacity: 1;
+  }
+  .deal-card h3 {
+    margin: 0;
+    font-size: 24px;
+  }
+  .deal-card h1 {
+    margin: 10px 0;
+    font-size: 36px;
+  }
+  .deal-card p {
+    margin-bottom: 20px;
+  }
+  .deal-card button {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  .deal-card button:hover {
+    background-color: #e91e63;
+  }
+  #footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 70vh;
+  }
+  .scroll-btn {
+    display: none;
+  }
+  @media screen and (max-width: 768px) {
+    #Home {
+      flex-direction: column;
+      height: auto;
+    }
+    .btn{
+        position: relative;
+        left: 25%;
+    }
+    .image,
+    .matter {
+      width: 100%;
+      max-width: none;
+      height: auto;
+    }
+    .reviews-section{
+        display: none;
+    }
+    .reviewer {
+      width: 100%;
+    }
+    .review-card,
+    .deal-card {
+      min-width: 250px;
+    }
+    .scroll-btn {
+      display: block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 1;
+    }
+    .scroll-btn.left {
+      left: 10px;
+    }
+    .scroll-btn.right {
+      right: 10px;
+    }
+  }
+  

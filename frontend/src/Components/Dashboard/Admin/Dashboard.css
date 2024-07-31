@@ -1,0 +1,19 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.stat {
+  flex: 1;
+  background-color: #f5f5f5;
+  padding: 20px;
+  margin: 0 10px;
+  text-align: center;
+  border-radius: 8px;
+}

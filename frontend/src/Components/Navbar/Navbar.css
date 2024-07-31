@@ -1,0 +1,114 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+.logo{
+    margin-left: 70px;
+}
+.navbar{
+    width: 100%;
+    height: 10vh;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.auth{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 70px;
+}
+.auth p{
+    width: 40px;
+    height: 40px;
+    background-color: #EA559D;
+    border: 1px solid #ccc;
+    color: white;
+    padding: 5px;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+.AboutLink{
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
+    padding: 20px;
+}
+.auth button{
+    padding: 10px 20px;
+    margin-left: 30px;
+    background-color: #EA559D;
+    border: 1px solid #ccc;
+    color: #f5f5f5;
+    align-items: center;
+}
+.links{
+    padding: 20px;
+}
+.link{
+    text-decoration: none;
+    color: #000;
+    padding: 20px;
+    font-size: 20px;
+    padding-left: 20px;
+}
+#bagicon{
+    width: 40px;
+    height: 40px;
+}
+.auth span{
+    width: 10px;
+    height: 40px;
+    margin-right: 20px;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -40vw; /* Hide the sidebar initially */
+    width: 40vw;
+    height: 100%;
+    background-color: #f8f9fa;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease-in-out; /* Smooth sliding effect */
+    padding: 20px;
+    overflow-y: auto; /* Scrollable content */
+  }
+  
+  .sidebar.open {
+    right: 0; /* Slide in the sidebar */
+  }
+  
+  #bagicon {
+    cursor: pointer;
+  }
+  
+  .increment {
+    margin-left: 10px;
+  }
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  @media screen and (max-width: 768px) {
+    .logo{
+        margin: 0;
+    }
+    .auth{
+        margin-right: 10px;
+    }
+  }

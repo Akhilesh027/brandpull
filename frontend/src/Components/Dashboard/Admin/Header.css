@@ -1,0 +1,17 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  .header input {
+    padding: 5px;
+    font-size: 16px;
+  }
+  
+  .header-icons span {
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  

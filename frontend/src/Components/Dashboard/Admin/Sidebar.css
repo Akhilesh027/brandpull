@@ -1,0 +1,27 @@
+.sidebars {
+    width: 250px;
+    background-color: #2d3a4b;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .sidebar-header {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar-menu {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar-menu li {
+    
+    margin: 15px 0;
+  }
+  .list{
+    list-style: none;
+  }
