@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBagShopping, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faBagShopping, faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
 import logo from '../Images/logo.jpeg';
 import Cart from "../Pages/Cart";
 
@@ -14,6 +14,7 @@ const Navbar = () => {
   const [error, setError] = useState("");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const fetchCartItems = async () => {
@@ -36,7 +37,6 @@ const Navbar = () => {
       const token = localStorage.getItem("token");
 
       if (!token) {
-        console.log("No token found");
         setLoading(false);
         return;
       }
@@ -84,6 +84,18 @@ const Navbar = () => {
     setIsSidebarOpen(false);
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(prev => !prev);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  const handleLinkClick = () => {
+    closeMobileMenu();
+  };
+
   const totalQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
@@ -91,35 +103,33 @@ const Navbar = () => {
       <div className="logo">
         <Link to='/Home'><img src={logo} alt="logo" width={80} height={80} /></Link>
       </div>
-      {!currentUser || currentUser.role !== 'admin' ? (
-        <div className="Links">
-          <Link to='/Home' className="AboutLink">Home</Link>
-          <Link to='/about' className="AboutLink">About</Link>
+      <FontAwesomeIcon icon={faBars} className="hamburger" onClick={toggleMobileMenu} />
+      <div className={`Links ${isMobileMenuOpen ? 'open' : ''}`}>
+        <div className="authlinks">
+          <Link to='/Home' className="AboutLink" onClick={handleLinkClick}>Home</Link>
+          <Link to='/about' className="AboutLink" onClick={handleLinkClick}>About</Link>
         </div>
-      ) : null}
-      <div className="auth">
-        {loading && <p>Loading...</p>}
-        {isAuthenticated ? (
-          <div className="auth">
-            {/* Conditionally render the shopping bag icon and quantity span */}
-            {currentUser.role !== 'admin' && (
-              <>
-                <FontAwesomeIcon icon={faBagShopping} id='bagicon' onClick={toggleSidebar} />
-                <span className='increment'>{totalQuantity}</span>
-              </>
-            )}
-            <Link className="Link" to="/profile">
-              <p>{currentUser.username[0]}</p>
-            </Link>
-            <Link className="Link" to='/login'>
-              <button onClick={handleLogout}>Logout</button>
-            </Link>
+        <div className="auth">
+          {/* Always show cart icon and quantity */}
+          <div className="mobileCart">
+            <FontAwesomeIcon icon={faBagShopping} id='bagicon' onClick={toggleSidebar} />
+            <span className='increment'>{totalQuantity}</span>
           </div>
-        ) : (
-          <Link to="/login">
-            <button>login</button>
-          </Link>
-        )}
+          {isAuthenticated ? (
+            <>
+              <Link className="Link" to="/profile" onClick={handleLinkClick}>
+                <p>{currentUser.username[0]}</p>
+              </Link>
+              <Link className="Link" to='/login' onClick={handleLogout}>
+                <button>Logout</button>
+              </Link>
+            </>
+          ) : (
+            <Link to="/login" onClick={handleLinkClick}>
+              <button>Login</button>
+            </Link>
+          )}
+        </div>
       </div>
       <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
         <button className="close-btn" onClick={closeSidebar}>
