@@ -8,7 +8,6 @@ const sequelize = require('./config/db.js');
 const User = require('./Modules/auth.js');
 const { Cart, Product, Order } = require('../Backend/Modules/combine.js');
 const BillingDetails = require('./Modules/billingDetails.js');
-const config = require('./config.js');
 
 require('dotenv').config();
 
