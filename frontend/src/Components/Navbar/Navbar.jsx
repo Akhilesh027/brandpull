@@ -110,11 +110,13 @@ const Navbar = () => {
           <Link to='/about' className="AboutLink" onClick={handleLinkClick}>About</Link>
         </div>
         <div className="auth">
-          {/* Always show cart icon and quantity */}
-          <div className="mobileCart">
-            <FontAwesomeIcon icon={faBagShopping} id='bagicon' onClick={toggleSidebar} />
-            <span className='increment'>{totalQuantity}</span>
-          </div>
+          {/* Always show cart icon and quantity unless the user is an admin */}
+          {(!isAuthenticated || (currentUser && currentUser.role !== 'admin')) && (
+            <div className="mobileCart">
+              <FontAwesomeIcon icon={faBagShopping} id='bagicon' onClick={toggleSidebar} />
+              <span className='increment'>{totalQuantity}</span>
+            </div>
+          )}
           {isAuthenticated ? (
             <>
               <Link className="Link" to="/profile" onClick={handleLinkClick}>

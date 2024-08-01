@@ -4,7 +4,7 @@ import './Cart.css';
 import image from '../Images/image6.jpeg';
 import { Link } from 'react-router-dom';
 
-const Cart = ({ onClose }) => {
+const Cart = ({ onClose,closeSidebar }) => {
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -65,11 +65,11 @@ const Cart = ({ onClose }) => {
                 <div className='down'>
                   <p>Total: ₹{item.productPrice * item.quantity}</p>
                   <button className='cartbtn' onClick={onClose}>
-                    <Link className='Link' to={`/product/${item._id}`}>View cart</Link>
+                    <Link className='Link' to={`/product`}>View cart</Link>
                   </button>
-                  <button className='cartbtn' onClick={onClose}>
-                    <Link className='Link' to='/checkout'>Check Out</Link>
-                  </button>
+                  
+                    <Link className='Link' to='/checkout'><button className='cartbtn' onClick={onClose}>Checkout </button></Link>
+                 
                 </div>
               </React.Fragment>
             ))}

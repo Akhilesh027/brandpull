@@ -34,6 +34,7 @@
   max-width: 300px; /* Set a max-width for large screens */
   height: 50px;
   background-color: #EA559D;
+  color: white;
   border: 1px solid #ccc;
   border-radius: 5px;
   margin: 10px auto; /* Center the button horizontally */

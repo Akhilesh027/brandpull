@@ -1,8 +1,13 @@
+/* LatestOrders.css */
+
 .latest-orders {
+  width: 100%;
   padding: 20px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  overflow-x: auto; /* Allows horizontal scrolling on small screens */
 }
 
 .latest-orders h2 {
@@ -41,42 +46,73 @@
 .latest-orders .mark-completed-btn:hover {
   background-color: #45a049;
 }
-/* LatestOrders.css */
 
-.latest-orders {
-  margin: 20px;
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .latest-orders {
+    padding: 10px;
+  }
+
+  .latest-orders h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .latest-orders th, .latest-orders td {
+    padding: 6px;
+    font-size: 14px;
+  }
+
+  .latest-orders .mark-completed-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
 }
 
-.latest-orders table {
-  width: 100%;
-  border-collapse: collapse;
-}
+@media (max-width: 480px) {
+  .latest-orders {
+    padding: 5px;
+    display: none;
+  }
 
-.latest-orders th,
-.latest-orders td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-}
+  .latest-orders h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
 
-.latest-orders th {
-  background-color: #f2f2f2;
-}
+  .latest-orders th, .latest-orders td {
+    padding: 4px;
+    font-size: 12px;
+  }
 
-.mark-completed-btn {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 4px;
-}
+  .latest-orders .mark-completed-btn {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
 
-.mark-completed-btn:hover {
-  background-color: #45a049;
+  .latest-orders table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .latest-orders th, .latest-orders td {
+    display: flex;
+    text-align: right;
+  }
+
+  .latest-orders th {
+    display: none;
+  }
+
+  .latest-orders td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .latest-orders td {
+    border: none;
+    border-bottom: 1px solid #ddd;
+  }
 }

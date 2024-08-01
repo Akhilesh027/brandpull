@@ -47,7 +47,7 @@ function LatestOrders() {
             <th>Order ID</th>
             <th>Amount</th>
             <th>Status</th>
-            <th>User ID</th>
+          
             <th>Actions</th>
           </tr>
         </thead>
@@ -57,7 +57,7 @@ function LatestOrders() {
               <td>{order.id}</td>
               <td>₹{order.amount.toFixed(2)}</td>
               <td>{order.status}</td>
-              <td>{order.userId}</td>
+           
               <td>
                 {order.status !== 'Completed' && (
                   <button

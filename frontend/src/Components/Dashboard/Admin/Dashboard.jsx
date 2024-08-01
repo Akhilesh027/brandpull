@@ -73,7 +73,7 @@ function Dashboard() {
         </div>
       </div>
       <SalesStatistics salesData={salesData} />
-      <LatestOrders orders={orders} setOrders={setOrders} />
+      <LatestOrders orders={orders} setOrders={setOrders} className='latestorder'/>
     </div>
   );
 }
