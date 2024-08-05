@@ -68,7 +68,7 @@ const authenticateJWT = (req, res, next) => {
 };
 
 // User details route
-app.get('/api/user/details', authenticateJWT, async (req, res) => {
+app.get('/api/user/details', async (req, res) => {
   try {
     const user = await User.findByPk(req.user.id);
     if (!user) return res.status(404).json({ message: 'User not found' });
@@ -158,7 +158,18 @@ app.delete('/api/cart/:productId', async (req, res) => {
     res.status(500).json({ message: 'Failed to delete cart item' });
   }
 });
+app.post('/api/contact', (req, res) => {
+  const { name, email, message } = req.body;
+  const query = 'INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)';
 
+  db.query(query, [name, email, message], (err, results) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send('Server Error');
+    }
+    res.status(200).send('Message Sent');
+  });
+});
 
 // Billing details route
 app.post('/api/saveBillingDetails', async (req, res) => {
@@ -199,7 +210,7 @@ app.post('/api/saveBillingDetails', async (req, res) => {
 });
 
 // Order routes
-app.post('/api/orders', authenticateJWT, async (req, res) => {
+app.post('/api/orders', async (req, res) => {
   const { amount, status } = req.body;
 
   // Check if amount and status are provided
@@ -232,7 +243,7 @@ app.get('/api/orders', async (req, res) => {
   }
 });
 
-app.get('/api/orders/user', authenticateJWT, async (req, res) => {
+app.get('/api/orders/user', async (req, res) => {
   try {
     const orders = await Order.findAll({ where: { userId: req.user.id } });
     res.status(200).json(orders);
@@ -264,7 +275,7 @@ app.get('/api/products/total', async (req, res) => {
 });
 
 // Get all orders
-app.get('/api/orders', authenticateJWT, async (req, res) => {
+app.get('/api/orders', async (req, res) => {
   try {
     const orders = await Order.findAll();
     res.status(200).json(orders);

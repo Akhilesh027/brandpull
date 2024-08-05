@@ -36,7 +36,7 @@ const Cart = ({ onClose,closeSidebar }) => {
     }
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p className='spinner'>Loading...</p>;
   if (error) return <p>{error}</p>;
 
   return (

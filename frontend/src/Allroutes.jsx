@@ -9,6 +9,7 @@ import UserDashboard from './Components/Dashboard/User/User'
 import AdminDashboard from './Components/Dashboard/Admin/Admin'
 import BillingForm from './Components/Pages/Billing'
 import Profile from './Components/Pages/Profilo'
+import Contact from './Components/Pages/Contact'
 const Allroutes = () => {
   const productId=1
   return (
@@ -17,6 +18,7 @@ const Allroutes = () => {
         <Route path="/" element={<Home />} />
         <Route path='/Home' element={<Home/>}/>
         <Route path='/about' element={<About/>}/>
+        <Route path='/contact' element={<Contact/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/product' element={<Product productId={productId}/>}/>

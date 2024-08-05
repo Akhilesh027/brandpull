@@ -1,67 +1,92 @@
 #product {
   width: 100vw;
-  height: 90vh;
-  background-color: azure;
+  height: 100vh;
+  background-color: #FFF4EF;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 .product-page {
-  padding: 20px;
   max-width: 600px;
   margin: auto;
   text-align: center;
 }
-
-.product-image {
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 600px;
+  height: 650px;
+}
+.main-image img {
+  width: 100%;
   height: 600px;
-
-  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  object-fit: cover;
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-p {
-  font-size: 18px;
-}
-.description {
-  width: 600px;
-  height: 600px;
+.thumbnail-images {
   display: flex;
   justify-content: center;
-  align-items: top;
+  margin-top: -100px;
 }
-.description h2{
+
+.thumbnail-images img {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  margin: 0 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+.thumbnail-images img.active-thumbnail {
+  border-color: #333;
+}
+
+.description {
+  width: 600px;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.description h2 {
   text-transform: capitalize;
   font-size: 30px;
   font-weight: 600;
   font-family: 'Merriweather', serif;
 }
-.description h3{
-  font-size: 20px;
+
+.description h3 {
+  font-size: 24px;
   font-weight: 600;
-  font-family: 'Merriweather', serif;
-}
-.description p{
-  font-size: 18px;
-  font-weight: 300;
   font-family: 'Merriweather', serif;
   margin-top: 20px;
 }
+
+.description p {
+  font-size: 18px;
+  font-weight: 300;
+  font-family: 'Merriweather', serif;
+  margin-top: 10px;
+}
+
 .quantity-selector {
   display: flex;
   align-items: center;
+  margin-top: 20px;
 }
 
 .quantity-selector button {
   background-color: #f0f0f0;
   border: 1px solid #ccc;
-  padding: 10px 10px;
+  padding: 10px;
   cursor: pointer;
 }
 
@@ -74,26 +99,58 @@ p {
   margin: 0 10px;
   font-size: 16px;
 }
-.incre{
-  width: 100%;
-  height: auto;
+
+.incre {
   display: flex;
-  justify-content: left;
+  justify-content: flex-start;
   align-items: center;
   margin-top: 20px;
 }
-.pbtn{
-  padding: 10px 130px;
+
+.pbtn {
+  padding: 10px 10vw;
   background-color: #EA559D;
-  color: #ffff;
+  color: #fff;
   border-radius: 5px;
   border: none;
+  margin-top: 18px;
   margin-left: 20px;
-  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pbtn:hover {
+  background-color: #d94c8a;
+}
+/* Spinner styles */
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.spinner::after {
+  content: " ";
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 6px solid #ccc;
+  border-color: #000 transparent #000 transparent;
+  animation: spinner 1.2s linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Media Queries for Responsiveness */
-/* Mobile View Styles */
 @media (max-width: 768px) {
   #product {
     flex-direction: column;
@@ -101,20 +158,29 @@ p {
     padding: 20px;
   }
 
-  .product-page {
-    padding: 10px;
-    max-width: 100%;
+  .product-gallery {
+    width: 100%;
   }
 
-  .product-image {
+  .main-image img {
     width: 100%;
     height: auto;
+  }
+
+  .thumbnail-images {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .thumbnail-images img {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
   }
 
   .description {
     width: 100%;
-    height: auto;
-    display: block;
     padding: 10px;
   }
 
@@ -123,7 +189,7 @@ p {
   }
 
   .description h3 {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .description p {
@@ -145,12 +211,14 @@ p {
   }
 
   .incre {
-    margin-top: 10px;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .pbtn {
     padding: 10px 40px;
     font-size: 14px;
+    margin-top: 10px;
     margin-left: 0;
   }
 }
@@ -162,19 +230,28 @@ p {
     padding: 10px;
   }
 
-  .product-page {
-    padding: 5px;
-    max-width: 100%;
+  .product-gallery {
+    width: 100%;
   }
 
-  .product-image {
+  .main-image img {
     width: 100%;
     height: auto;
+  }
+
+  .thumbnail-images {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .thumbnail-images img {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
   }
 
   .description {
     width: 100%;
-    height: auto;
     padding: 5px;
   }
 
@@ -183,7 +260,7 @@ p {
   }
 
   .description h3 {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .description p {
@@ -205,12 +282,14 @@ p {
   }
 
   .incre {
-    margin-top: 10px;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .pbtn {
     padding: 8px 20px;
     font-size: 12px;
+    margin-top: 10px;
     margin-left: 0;
   }
 }
