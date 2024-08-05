@@ -66,11 +66,7 @@ const BillingForm = () => {
       };
 
       // Save order details
-      await axios.post("https://brandpull-1.onrender.com/api/orders", orderDetails, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      await axios.post("https://brandpull-1.onrender.com/api/orders", orderDetails);
 
       // Redirect and alert
       navigate("/Home");
@@ -209,7 +205,7 @@ const BillingForm = () => {
               </div>
             )}
 
-            <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', backgroundColor: '#ffe6f2' }}>
+            <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif', backgroundColor: '#FFF4EF' }}>
               <h3>Payment Options</h3>
               <form className="form">
                 <div className="box">
