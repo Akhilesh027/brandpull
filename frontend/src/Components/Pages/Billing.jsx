@@ -66,8 +66,12 @@ const BillingForm = () => {
       };
 
       // Save order details
-      await axios.post("https://brandpull-1.onrender.com/api/orders", orderDetails);
-//order
+      await axios.post("https://brandpull-1.onrender.com/api/orders", orderDetails, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+
       // Redirect and alert
       navigate("/Home");
       alert("Order placed successfully");
