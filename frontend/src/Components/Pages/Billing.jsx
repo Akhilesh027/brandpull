@@ -53,29 +53,31 @@ const BillingForm = () => {
     e.preventDefault();
     try {
       // Save billing details
-      await axios.post("https://brandpull-1.onrender.com/api/saveBillingDetails", formData);
-
+      const billingResponse = await axios.post("https://brandpull-1.onrender.com/api/saveBillingDetails", formData);
+      console.log("Billing details saved:", billingResponse.data);
+  
       // Prepare order details
       const orderDetails = {
-    
         amount: cartItems.reduce(
           (total, item) => total + item.productPrice * item.quantity,
           0
         ),
         status: "Pending",
       };
-
+  
       // Save order details
-      await axios.post("https://brandpull-1.onrender.com/api/orders", orderDetails);
-
+      const orderResponse = await axios.post("https://brandpull-1.onrender.com/api/orders", orderDetails);
+      console.log("Order details saved:", orderResponse.data);
+  
       // Redirect and alert
       navigate("/Home");
       alert("Order placed successfully");
     } catch (error) {
-      console.error("Error placing order:", error);
+      console.error("Error placing order:", error.response ? error.response.data : error.message);
       setError("Error placing the order. Please try again.");
     }
   };
+  
 
   const totalAmount = cartItems.reduce(
     (total, item) => total + item.productPrice * item.quantity,

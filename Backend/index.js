@@ -222,7 +222,7 @@ app.post('/api/orders', async (req, res) => {
     const newOrder = await Order.create({
       amount,     // Ensure this matches your model definition
       status,     // Ensure this matches your model definition
-      userId: req.user.id, // Ensure req.user.id is correctly set and corresponds to a valid user
+     // Ensure req.user.id is correctly set and corresponds to a valid user
     });
 
     res.status(201).json({ message: 'Order created successfully', order: newOrder });
