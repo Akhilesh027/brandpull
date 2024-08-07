@@ -73,7 +73,6 @@ const BillingForm = () => {
       navigate("/Home");
       alert("Order placed successfully");
     } catch (error) {
-      console.error("Error placing order:", error.response ? error.response.data : error.message);
       setError("Error placing the order. Please try again.");
     }
   };

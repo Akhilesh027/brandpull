@@ -220,9 +220,8 @@ app.post('/api/orders', async (req, res) => {
 
   try {
     const newOrder = await Order.create({
-      amount,     // Ensure this matches your model definition
-      status,     // Ensure this matches your model definition
-     // Ensure req.user.id is correctly set and corresponds to a valid user
+      amount,
+      status
     });
 
     res.status(201).json({ message: 'Order created successfully', order: newOrder });
@@ -231,6 +230,7 @@ app.post('/api/orders', async (req, res) => {
     res.status(500).json({ error: 'Error creating order' });
   }
 });
+
 
 
 app.get('/api/orders', async (req, res) => {
@@ -284,7 +284,7 @@ app.get('/api/orders', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
-app.patch('/api/orders/:orderId', async (req, res) => {
+app.patch('/api/ordered', async (req, res) => {
   const { orderId } = req.params;
   const { status } = req.body;
   
