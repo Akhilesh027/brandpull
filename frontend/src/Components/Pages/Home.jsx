@@ -6,8 +6,6 @@ import './Home.css';
 import image from '../Images/image6.jpeg';
 import Footer from './Footer';
 import backimage from '../Images/background.png';
-import image2 from '../Images/image7.jpeg';
-
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
@@ -109,11 +107,11 @@ const Home = () => {
   return (
     <>
       <div className="content" ref={introRef}>
-        <div className="image">
+        <div id="image">
           <img src={backimage} alt="background" />
         </div>
       </div>
-
+  
       <div className='product'>
         <div className='text'>
           <h2>Our product</h2>
@@ -123,15 +121,18 @@ const Home = () => {
 
       <div id='Home' ref={productBoxesRef}>
         <div className='imagebox'>
+          <div className='image'>
           <img src={image} alt='thumbnail' className='image' />
+          </div>
           <div className='hover-content'>
             <div className='page'>
               <h3>Best Quality Products</h3>
-              <h1>"Nurture Your Little Maestro with Genius Baby Music Products"</h1>
-              <p>
-                At Genius Baby, we believe that every child is born with an innate potential for
-                creativity and learning.
-              </p>
+         <p> Research In Human Fetal Development Shows That Babies Exposed To MUSIC While In Utero Display Advanced Intelligence, Co-Ordination And Learning Abilities</p>
+         <p> Babies Remember The Sounds Heard Prenatally And Learn To Link Them With Emotions And Moods.</p>
+         <p> A Fetus Can Hear Clearly From The 17th Week Of Pregnancy.</p>
+         <p> Listening Together, You And Your Baby Stay In Tune.</p>
+         <p> Research Shows Optimal Values For Fetal And Well-Being Inspired From Safe And Sound Technology.</p>
+          <p> Research Shows That Listening To MUSIC While In The Womb Has A Stimulating Effect On Your Baby’s Brain. It Is Also Associated With Learning And Cognitive Development.</p>
               <button className='btn'>
                 <Link to='/product' className='Link'>
                   shop now
@@ -140,7 +141,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="imagebox2">
+        {/* <div className="imagebox2">
           <img src={image2} alt="box" className='image2'/>
           <div className='hover-content'>
             <div className='page'>
@@ -157,7 +158,7 @@ const Home = () => {
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className='reviews-section' ref={reviewsRef}>

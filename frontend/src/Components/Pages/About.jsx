@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import './AboutUs.css'; // Ensure you have the appropriate CSS file
 import AboutImage from '../Images/image2.jpeg';
+import Footer from './Footer';
 
 const AboutUs = () => {
   const imageRef = useRef(null);
@@ -22,6 +23,7 @@ const AboutUs = () => {
   }, []);
 
   return (
+    <>
     <div className="about-us-container">
       <div className="about-us-content">
         <div className="image-section" ref={imageRef}>
@@ -46,8 +48,48 @@ const AboutUs = () => {
             WITH GENIUS BABY PREGNANCY AUDIO DEVICE, you will get a more healthy, clever and a bubbly baby.
           </p>
         </div>
+        <div className="social-media">
+          <a
+            href="https://www.facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fab fa-facebook-f"></i>
+          </a>
+          <a
+            href="https://x.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fab fa-twitter"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fab fa-linkedin-in"></i>
+          </a>
+          <a
+            href="https://www.youtube.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fab fa-youtube"></i>
+          </a>
+        </div>
       </div>
+     
     </div>
+     <Footer/>
+   </>
   );
 };
 

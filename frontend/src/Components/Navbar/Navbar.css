@@ -173,14 +173,13 @@ body{
         left: 30%;
     }
     .Links.open {
-        height: 35vh;
+        height: 50vh;
         display: flex; /* Show the links when the menu is open */
+        background-color: #FFF4EF;
     }
 
     .mobileCart {
-        display: flex; /* Show the cart icon in the mobile menu */
-        align-items: center;
-        margin: 10px;
+        position: absolute;
     }
 
     .mobileCart span {

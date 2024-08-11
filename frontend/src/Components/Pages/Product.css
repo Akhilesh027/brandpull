@@ -226,70 +226,99 @@
 @media (max-width: 480px) {
   #product {
     flex-direction: column;
-    height: auto;
-    padding: 10px;
+    padding: 15px;
+    background-color: #FFF4EF;
   }
 
   .product-gallery {
     width: 100%;
+    height: 100%;
+    margin-bottom: 20px;
   }
 
   .main-image img {
     width: 100%;
     height: auto;
+    border-radius: 10px;
   }
 
   .thumbnail-images {
-    flex-wrap: wrap;
+    display: flex;
     justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
   }
 
   .thumbnail-images img {
-    width: 40px;
-    height: 40px;
-    margin: 5px;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .thumbnail-images img.active-thumbnail {
+    border-color: #EA559D;
+    transform: scale(1.1);
   }
 
   .description {
     width: 100%;
-    padding: 5px;
+    padding: 10px;
+    text-align: center;
   }
 
   .description h2 {
-    font-size: 20px;
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: bold;
   }
 
   .description h3 {
-    font-size: 18px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #EA559D;
   }
 
   .description p {
     font-size: 14px;
+    margin-bottom: 15px;
+    color: #666;
   }
 
   .quantity-selector {
-    flex-direction: column;
-    align-items: flex-start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
   }
 
   .quantity-selector button {
-    padding: 6px;
-    font-size: 12px;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
   }
 
   .quantity-selector span {
-    font-size: 12px;
-  }
-
-  .incre {
-    flex-direction: column;
-    align-items: flex-start;
+    font-size: 16px;
+    font-weight: bold;
   }
 
   .pbtn {
-    padding: 8px 20px;
-    font-size: 12px;
-    margin-top: 10px;
-    margin-left: 0;
+    width: 100%;
+    padding: 12px;
+    background-color: #EA559D;
+    color: #fff;
+    font-size: 18px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .pbtn:hover {
+    background-color: #d94c8a;
   }
 }

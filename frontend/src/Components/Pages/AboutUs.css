@@ -51,7 +51,21 @@
   margin-bottom: 20px;
   line-height: 1.6;
 }
+.social-media{
+  position: absolute;
+  top: 36vw;
+  left: 39%;
+}
+.social-media a {
+  margin: 0 10px;
+  color: #333;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
 
+.social-media a:hover {
+  color: #007bff; /* Change color on hover */
+}
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
   .about-us-content {
