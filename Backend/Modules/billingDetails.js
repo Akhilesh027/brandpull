@@ -51,6 +51,19 @@ const BillingDetails = sequelize.define('BillingDetails', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  transactionId: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  paymentStatus: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    defaultValue: 'pending',
+  },
+  amount: {
+    type: DataTypes.FLOAT,
+    allowNull: false,
+  },
   createdAt: {
     type: DataTypes.DATE,
     defaultValue: Sequelize.NOW,

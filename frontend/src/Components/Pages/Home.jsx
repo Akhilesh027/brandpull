@@ -91,7 +91,7 @@ const Home = () => {
       avatar: image,
     },
     {
-      rating: '⭐⭐⭐⭐⭐',
+      rating: '⭐⭐⭐⭐',
       text: "Genius Baby has truly thought of everything. The baby-friendly instruments are not only safe but also super engaging. My son loves the little drum set and the xylophone. It's amazing to see him develop his sense of rhythm and coordination at such a young age.",
       name: 'Akhileshreddy',
       avatar: image,
@@ -111,16 +111,16 @@ const Home = () => {
           <img src={backimage} alt="background" />
         </div>
       </div>
-  
+
+      <div id='Home' ref={productBoxesRef}>
       <div className='product'>
         <div className='text'>
           <h2>Our product</h2>
           <p>GENIUS BABY AUDIO DEVICE</p>
         </div>
       </div>
-
-      <div id='Home' ref={productBoxesRef}>
         <div className='imagebox'>
+        
           <div className='image'>
           <img src={image} alt='thumbnail' className='image' />
           </div>

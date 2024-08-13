@@ -172,26 +172,11 @@ app.post('/api/contact', (req, res) => {
 });
 
 // Billing details route
-app.post('/api/saveBillingDetails', async (req, res) => {
-  const {
-    firstName,
-    lastName,
-    companyName,
-    country,
-    streetAddress,
-    townCity,
-    state,
-    pinCode,
-    phone,
-    email,
-    paymentMethod,
-  } = req.body;
-
+app.post('/api/billing', async (req, res) => {
   try {
-    const billingDetails = await BillingDetails.create({
+    const {
       firstName,
       lastName,
-      companyName,
       country,
       streetAddress,
       townCity,
@@ -200,15 +185,44 @@ app.post('/api/saveBillingDetails', async (req, res) => {
       phone,
       email,
       paymentMethod,
+      transactionId,
+      paymentStatus,
+      amount
+    } = req.body;
+
+    const billingDetails = await BillingDetails.create({
+      firstName,
+      lastName,
+      country,
+      streetAddress,
+      townCity,
+      state,
+      pinCode,
+      phone,
+      email,
+      paymentMethod,
+      transactionId,
+      paymentStatus,
+      amount
     });
 
-    res.status(200).json({ message: 'Order placed successfully', billingDetails });
+    // Send email after successful billing
+    
+    res.status(201).json(billingDetails);
   } catch (error) {
     console.error('Error saving billing details:', error);
-    res.status(500).json({ error: 'Error saving billing details' });
+    res.status(500).json({ error: 'Failed to save billing details' });
   }
 });
 
+app.get('/api/billing', async (req, res) => {
+  try {
+    const billingDetails = await BillingDetails.findAll();
+    res.status(200).json(billingDetails);
+  } catch (error) {
+    res.status(500).json({ error: 'Error fetching billing details' });
+  }
+});
 // Order routes
 app.post('/api/orders', async (req, res) => {
   const { amount, status } = req.body;
@@ -230,9 +244,6 @@ app.post('/api/orders', async (req, res) => {
     res.status(500).json({ error: 'Error creating order' });
   }
 });
-
-
-
 app.get('/api/orders', async (req, res) => {
   try {
     const orders = await Order.findAll();
@@ -245,7 +256,7 @@ app.get('/api/orders', async (req, res) => {
 
 app.get('/api/orders/user', async (req, res) => {
   try {
-    const orders = await Order.findAll({ where: { userId: req.user.id } });
+    const orders = await BillingDetails.findAll({ where: { userId: req.user.id } });
     res.status(200).json(orders);
   } catch (error) {
     console.error('Error fetching user orders:', error);
@@ -254,7 +265,7 @@ app.get('/api/orders/user', async (req, res) => {
 });
 app.get('/api/sales/total', async (req, res) => {
   try {
-    const orders = await Order.findAll();
+    const orders = await BillingDetails.findAll();
     const totalSales = orders.reduce((total, order) => total + order.amount, 0);
     res.status(200).json({ totalSales });
   } catch (error) {

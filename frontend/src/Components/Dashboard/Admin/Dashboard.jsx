@@ -29,7 +29,7 @@ function Dashboard() {
         setTotalSales(salesAmount);
 
         // Fetch total orders
-        const ordersResponse = await axios.get('https://brandpull-1.onrender.com/api/orders');
+        const ordersResponse = await axios.get('https://brandpull-1.onrender.com/api/billing');
         const ordersData = ordersResponse.data;
         setOrders(ordersData);
         setTotalOrders(ordersData.length);
@@ -72,7 +72,6 @@ function Dashboard() {
           <p>{completedOrders}</p>
         </div>
       </div>
-      <SalesStatistics salesData={salesData} />
       <LatestOrders orders={orders} setOrders={setOrders} className='latestorder'/>
     </div>
   );

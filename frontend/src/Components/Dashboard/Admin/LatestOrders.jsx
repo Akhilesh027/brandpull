@@ -1,79 +1,62 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './LatestOrders.css'; // Ensure you add appropriate styles in this CSS file
+import './LatestOrders.css';
 
-function LatestOrders() {
-  const [orders, setOrders] = useState([]);
+const OrderListPage = () => {
+    const [orders, setOrders] = useState([]);
 
-  useEffect(() => {
-    const fetchOrders = async () => {
-      try {
-        const response = await axios.get('https://brandpull-1.onrender.com/api/orders');
-        setOrders(response.data);
-      } catch (error) {
-        console.error('Error fetching orders:', error);
-      }
-    };
+    useEffect(() => {
+        const fetchOrders = async () => {
+            try {
+                const response = await axios.get('https://brandpull-1.onrender.com/api/billing');
+                setOrders(response.data);
+            } catch (error) {
+                console.error('Error fetching orders:', error);
+            }
+        };
 
-    fetchOrders();
-  }, []);
+        fetchOrders();
+    }, []);
 
-  const handleMarkAsCompleted = async (orderId) => {
-    try {
-      // API call to update order status to 'Completed'
-      await axios.patch(`https://brandpull-1.onrender.com/api/orders/${orderId}`, {
-        status: 'Completed',
-      });
+    return (
+        <div className="order-list-page">
+            <h2>Order List</h2>
+            <table className="order-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Zip</th>
+                        <th>Payment Method</th>
+                        <th>Transaction ID</th>
+                        <th>Payment Status</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {orders.map(order => (
+                        <tr key={order.id}>
+                            <td>{order.firstName}</td>
+                            <td>{order.email}</td>
+                            <td>{order.phone}</td>
+                            <td>{order.streetAddress}</td>
+                            <td>{order.townCity}</td>
+                            <td>{order.state}</td>
+                            <td>{order.pinCode}</td>
+                            <td>{order.paymentMethod}</td>
+                            <td>{order.transactionId || 'N/A'}</td>
+                            <td>{order.paymentStatus}</td>
+                            <td>₹{order.amount.toFixed(2)}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    );
+};
 
-      // Update local state to reflect the change
-      setOrders(prevOrders =>
-        prevOrders.map(order =>
-          order.id === orderId
-            ? { ...order, status: 'Completed' }
-            : order
-        )
-      );
-    } catch (error) {
-      console.error('Error updating order status:', error);
-    }
-  };
-
-  return (
-    <div className="latest-orders">
-      <h2>Latest Orders</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Order ID</th>
-            <th>Amount</th>
-            <th>Status</th>
-          
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orders.map(order => (
-            <tr key={order.id}>
-              <td>{order.id}</td>
-              <td>₹{order.amount.toFixed(2)}</td>
-              <td>{order.status}</td>
-           
-              <td>
-                {order.status !== 'Completed' && (
-                  <button
-                    onClick={() => handleMarkAsCompleted(order.id)}
-                    className="mark-completed-btn"
-                  >
-                    Mark as Completed
-                  </button>
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
-
-export default LatestOrders;
+export default OrderListPage;

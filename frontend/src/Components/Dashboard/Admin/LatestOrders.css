@@ -1,118 +1,63 @@
-/* LatestOrders.css */
-
-.latest-orders {
-  width: 100%;
+/* OrderListPage.css */
+.order-list-page {
   padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 20px;
-  overflow-x: auto; /* Allows horizontal scrolling on small screens */
+  background-color: #f4f4f4;
+  font-family: 'Arial', sans-serif;
 }
 
-.latest-orders h2 {
+.order-list-page h2 {
+  text-align: center;
   margin-bottom: 20px;
+  color: #333;
 }
 
-.latest-orders table {
+.order-table {
   width: 100%;
   border-collapse: collapse;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.latest-orders th, .latest-orders td {
-  border: 1px solid #ddd;
-  padding: 8px;
+.order-table th, .order-table td {
+  padding: 12px 15px;
   text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
-.latest-orders th {
-  background-color: #f4f4f4;
+.order-table th {
+  background-color: #333;
+  color: #fff;
+  font-weight: bold;
 }
 
-.latest-orders .mark-completed-btn {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 4px;
+.order-table tr:hover {
+  background-color: #f1f1f1;
 }
 
-.latest-orders .mark-completed-btn:hover {
-  background-color: #45a049;
+.order-table tr:last-child td {
+  border-bottom: none;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .latest-orders {
-    padding: 10px;
-  }
-
-  .latest-orders h2 {
-    font-size: 18px;
-    margin-bottom: 15px;
-  }
-
-  .latest-orders th, .latest-orders td {
-    padding: 6px;
-    font-size: 14px;
-  }
-
-  .latest-orders .mark-completed-btn {
-    padding: 6px 12px;
-    font-size: 12px;
-  }
+.order-table td {
+  color: #555;
+}
+.update-status-button {
+  background-color: #28a745; /* Green background */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  padding: 5px 10px; /* Add some padding */
+  text-align: center; /* Center text */
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Inline block */
+  font-size: 14px; /* Font size */
+  margin: 0; /* Margin */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 5px; /* Rounded corners */
 }
 
-@media (max-width: 480px) {
-  .latest-orders {
-    padding: 5px;
-    display: none;
-  }
-
-  .latest-orders h2 {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-
-  .latest-orders th, .latest-orders td {
-    padding: 4px;
-    font-size: 12px;
-  }
-
-  .latest-orders .mark-completed-btn {
-    padding: 4px 8px;
-    font-size: 10px;
-  }
-
-  .latest-orders table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  .latest-orders th, .latest-orders td {
-    display: flex;
-    text-align: right;
-  }
-
-  .latest-orders th {
-    display: none;
-  }
-
-  .latest-orders td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-
-  .latest-orders td {
-    border: none;
-    border-bottom: 1px solid #ddd;
-  }
+.update-status-button:hover {
+  background-color: #218838; /* Darker green on hover */
 }

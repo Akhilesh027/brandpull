@@ -1,178 +1,187 @@
-.billing-form{
+.billing-form {
   width: 100%;
   height: 100%;
-  background-color: #FFF4EF;
+  background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .billing-data {
-    width: 90%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: #FFF4EF;
-  }
-  
-  .billing-details, .order-details {
-    flex: 1;
-    margin: 10px;
-  }
-  
-  .billing-details h2, .order-details h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .billing-details label, .order-details label {
-    display: block;
-    margin-top: 10px;
-  }
-  
-  .billing-details input, .order-details {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .order-summary {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .order-summary div {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-  }
-  
-  .payment-methods {
-    display: inline;
-  }
-  
-  .payment-methods label {
-    display: block;
-    margin-top: 10px;
-  }
-  
-  .payment-methods input {
-    margin-right: 10px;
-  }
-  
-  .razorpay-icon {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #f7f7f7;
-    border: 1px solid #ccc;
-    text-align: center;
-  }
-  
-  .Billingbtn {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #ff66b2;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-  
-  .Billingbtn:hover {
-    background-color: #ff3399;
-  }
-  .payment-methods {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .payment-option {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: left;
-    font-size: 16px;
-    margin-bottom: 5px;
-  }
-  
-  .payment-option input[type="radio"] {
-    width: 10px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  width: 90%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #fff;
+}
 
-  }
-  
-  .payment-option .custom-radio {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 2px solid #ccc;
-  
-  }
-  
-  .payment-option input[type="radio"]:checked + .custom-radio::after {
-    content: '';
-    width: 10px;
-    height: 10px;
-    background: #007bff;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 0%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .payment-methods p {
-    margin-left: 30px;
-    font-size: 14px;
-    color: #666;
-  }
-  .option{
-    display: flex;
-    flex-direction: column;
-    
-  }
-  .box{
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  .box label{
-    padding-bottom: 10px;
-    padding-left: 20px;
-  }
+.billing-details,
+.order-details {
+  flex: 1;
+  margin: 10px;
+}
 
-/* Mobile and Tablet View Styles */
+.billing-details h2,
+.order-details h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
 
-/* For Tablets (768px and below) */
+.billing-details label,
+.order-details label {
+  display: block;
+  margin-top: 10px;
+}
+
+.billing-details input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.order-details {
+  width: 100%;
+  padding: 10px;
+  margin-top: 30px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.order-summary {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.order-summary div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.payment-methods {
+  display: inline;
+}
+
+.payment-methods label {
+  display: block;
+  margin-top: 10px;
+}
+
+.payment-methods input {
+  margin-right: 10px;
+}
+
+.razorpay-icon {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.Billingbtn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #ff66b2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.Billingbtn:hover {
+  background-color: #ff3399;
+}
+.payment-methods {
+  margin: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.radio-option input[type="radio"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid black;
+  outline: none;
+  margin-right: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.radio-option input[type="radio"]:checked::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.radio-label {
+  font-size: 1em;
+  color: #333;
+}
+
+.payment-message {
+  padding: 10px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  color: #495057;
+}
+.place-order-btn{
+  background-color: black;
+  color: #ccc;
+  padding: 20px 250px;
+  cursor:pointer;
+}
 @media (max-width: 768px) {
   .billing-data {
     flex-direction: column;
     padding: 15px;
   }
 
-  .billing-details, .order-details {
+  .billing-details,
+  .order-details {
     margin: 10px 0;
   }
 
-  .billing-details h2, .order-details h2 {
+  .billing-details h2,
+  .order-details h2 {
     font-size: 20px;
   }
 
-  .billing-details label, .order-details label {
+  .billing-details label,
+  .order-details label {
     font-size: 14px;
   }
 
-  .billing-details input, .order-details {
+  .billing-details input,
+  .order-details {
     font-size: 14px;
   }
 
@@ -196,15 +205,18 @@
     padding: 10px;
   }
 
-  .billing-details h2, .order-details h2 {
+  .billing-details h2,
+  .order-details h2 {
     font-size: 18px;
   }
 
-  .billing-details label, .order-details label {
+  .billing-details label,
+  .order-details label {
     font-size: 12px;
   }
 
-  .billing-details input, .order-details {
+  .billing-details input,
+  .order-details {
     font-size: 12px;
   }
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import Sidebar from './Sidebar';
+import Sidebar from './SidebarCol';
 import Header from './Header';
 import Dashboard from './Dashboard';
 
@@ -13,15 +13,9 @@ function Admin() {
 
   return (
     <div className="app">
-      <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
-        <Sidebar />
-      </div>
       <div className="main-content">
         <Header />
         <Dashboard />
-      </div>
-      <div className="hamburger" onClick={toggleSidebar}>
-        ☰
       </div>
     </div>
   );
